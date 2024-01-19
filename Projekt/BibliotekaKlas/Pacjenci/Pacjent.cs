@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibliotekaKlas.Pacjenci
 {
-    public class Pacjent : Osoba<string>
+    public class Pacjent : PosiadaID<string>
     {
         public string pesel { get; set; }
         public string imie { get; }

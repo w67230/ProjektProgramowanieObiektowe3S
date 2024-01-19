@@ -1,5 +1,7 @@
 using BibliotekaKlas;
 using BibliotekaKlas.Lekarze;
+using BibliotekaKlas.Pacjenci;
+using BibliotekaKlas.Wizyty;
 
 namespace WebAPI
 {
@@ -17,6 +19,8 @@ namespace WebAPI
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddTransient<Dzialania<Lekarz, int>, DzialaniaLekarz>();
+            builder.Services.AddTransient<Dzialania<Pacjent, string>, DzialaniaPacjent>();
+            builder.Services.AddTransient<Dzialania<Wizyta, DateTime>, DzialaniaWizyta>();
 
             var app = builder.Build();
 

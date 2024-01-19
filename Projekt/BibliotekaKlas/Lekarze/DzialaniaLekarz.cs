@@ -10,10 +10,24 @@ namespace BibliotekaKlas.Lekarze
 {
     public class DzialaniaLekarz : Dzialania<Lekarz, int>
     {
-        private readonly string filePath = "lekarze.json";
+        public static readonly string filePath = "lekarze.json";
         public void Create(Lekarz t)
         {
             List<Lekarz> list = GetAll();
+            bool bl = true;
+            while (bl)
+            {
+                bl = false;
+                foreach(Lekarz lekarz in list)
+                {
+                    if(lekarz.getId() == t.getId())
+                    {
+                        t.setId(t.getId()+1);
+                        bl = true;
+                        break;
+                    }
+                }
+            }
             list.Add(t);
             WriteFile(list);
         }
@@ -46,7 +60,7 @@ namespace BibliotekaKlas.Lekarze
 
         public List<Lekarz> GetAll()
         {
-            return ReadFile();
+            return FileHelper.getListaLekarzyFromFile();
         }
 
         public void Update(Lekarz t)
@@ -61,19 +75,6 @@ namespace BibliotekaKlas.Lekarze
                 }
             }
             WriteFile(list);
-        }
-
-        public List<Lekarz> ReadFile()
-        {
-            if (File.Exists(filePath))
-            {
-                string content = File.ReadAllText(filePath);
-                if (content != null && content != "")
-                {
-                    return JsonSerializer.Deserialize<List<Lekarz>>(content);
-                }
-            }
-            return new List<Lekarz>();
         }
 
         public void WriteFile(List<Lekarz> list)

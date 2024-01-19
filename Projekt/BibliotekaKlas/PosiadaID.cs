@@ -1,12 +1,9 @@
 ﻿namespace BibliotekaKlas
 {
-    public interface Osoba<T>
+    public interface PosiadaID<T>
     {
         T getId();
         void setId(T id);
-
-        string getImie();
-        string getNazwisko();
         
     }
 }

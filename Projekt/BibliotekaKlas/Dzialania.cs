@@ -14,7 +14,6 @@ namespace BibliotekaKlas
         void Create(T t);
         void Update(T t);
         void Delete(ID id);
-        List<T> ReadFile();
         void WriteFile(List<T> list);
 
     }
