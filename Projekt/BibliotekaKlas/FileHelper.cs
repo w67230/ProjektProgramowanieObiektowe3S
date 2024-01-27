@@ -10,23 +10,22 @@ using System.Threading.Tasks;
 
 namespace BibliotekaKlas
 {
-    public static class FileHelper
+    public static class FileHelper<U>
     {
-
-
-
-        public static List<Lekarz> getListaLekarzyFromFile()
+        public static List<U> getListaFromFile(string filePath)
         {
-            if (File.Exists(DzialaniaLekarz.filePath))
+            if (File.Exists(filePath))
             {
-                string content = File.ReadAllText(DzialaniaLekarz.filePath);
+                string content = File.ReadAllText(filePath);
                 if (content != null && content != "")
                 {
-                    return JsonSerializer.Deserialize<List<Lekarz>>(content);
+                    return JsonSerializer.Deserialize<List<U>>(content);
                 }
             }
-            return new List<Lekarz>();
+            return new List<U>();
         }
+
+        /*
 
         public static List<Pacjent> getListaPacjentowFromFile()
         {
@@ -53,5 +52,6 @@ namespace BibliotekaKlas
             }
             return new List<Wizyta>();
         }
+        */
     }
 }

@@ -60,7 +60,7 @@ namespace BibliotekaKlas.Lekarze
 
         public List<Lekarz> GetAll()
         {
-            return FileHelper.getListaLekarzyFromFile();
+            return FileHelper<Lekarz>.getListaFromFile(filePath);
         }
 
         public void Update(Lekarz t)

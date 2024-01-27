@@ -46,7 +46,7 @@ namespace BibliotekaKlas.Wizyty
 
         public List<Wizyta> GetAll()
         {
-            return FileHelper.getListaWizytFromFile();
+            return FileHelper<Wizyta>.getListaFromFile(filePath);
         }
 
         public void Update(Wizyta t)

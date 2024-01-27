@@ -13,7 +13,7 @@ namespace BibliotekaKlas.Wizyty
 
         public static Lekarz getLekarz(int id)
         {
-            List<Lekarz> list = FileHelper.getListaLekarzyFromFile();
+            List<Lekarz> list = FileHelper<Lekarz>.getListaFromFile(DzialaniaLekarz.filePath);
             foreach (Lekarz lekarz in list)
             {
                 if (lekarz.getId() == id)
@@ -26,7 +26,7 @@ namespace BibliotekaKlas.Wizyty
 
         public static Pacjent getPacjent(string id)
         {
-            List<Pacjent> list = FileHelper.getListaPacjentowFromFile();
+            List<Pacjent> list = FileHelper<Pacjent>.getListaFromFile(DzialaniaPacjent.filePath);
             foreach (Pacjent pacjent in list)
             {
                 if (pacjent.getId() == id)

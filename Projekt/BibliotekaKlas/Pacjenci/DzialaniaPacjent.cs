@@ -46,7 +46,7 @@ namespace BibliotekaKlas.Pacjenci
 
         public List<Pacjent> GetAll()
         {
-            return FileHelper.getListaPacjentowFromFile();
+            return FileHelper<Pacjent>.getListaFromFile(filePath);
         }
 
         public void Update(Pacjent t)
